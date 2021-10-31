@@ -21,12 +21,12 @@ class LoggerCreate extends LoggerConfig
         return new PDO($db, self::DB_USER, self::DB_PASSWORD, $options);
     }
 
-    public function doALog(int $result, string $task_name, string $message): bool
+    public function doALog(int $log_status, string $task_name, string $message): bool
     {
         $pid = $this->selectProjectId();
         $tid = $this->selectTaskId($task_name);
         $insert = $this->db->prepare("INSERT INTO `logs` (`pid`, `lid`, `tid`, `message`, `date_time`) VALUES (?, ?, ?, ?, ?);");
-        return $insert->execute([$pid, $result, $tid, $message, date('Y-m-d H:i:s')]);
+        return $insert->execute([$pid, $log_status, $tid, $message, date('Y-m-d H:i:s')]);
     }
 
     protected function selectProjectId(): int
@@ -62,6 +62,13 @@ class LoggerCreate extends LoggerConfig
     {
         $insert = $this->db->prepare("INSERT INTO `tasks` (`task`, `date_added`) VALUES (?, ?);");
         $insert->execute([$task_name, date('Y-m-d H:i:s')]);
+        return $this->db->lastInsertId();
+    }
+
+    public function insertStatusType(string $status): int
+    {
+        $insert = $this->db->prepare("INSERT INTO `log_type` (`type`) VALUES (?);");
+        $insert->execute([$status]);
         return $this->db->lastInsertId();
     }
 }
