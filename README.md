@@ -4,7 +4,7 @@ Simple custom logging class with PHP to store logs all in one place, a database.
 
 Call custom logging in your projects all into one viewable place for ease of viewing.
 
-![alt text](https://github.com/cp6/kennyloggings/KennyLoggingsDiagram.jpg "KennyLoggings diagram")
+<img src="https://raw.githubusercontent.com/cp6/kennyloggings/main/KennyLoggingsDiagram.jpg" width="300" height="400" alt="KennyLoggings diagram" title="KennyLoggings diagram">
 
 ## Usage
 
