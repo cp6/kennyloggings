@@ -1,0 +1,22 @@
+{
+  "name": "corbpie/kennyloggings",
+  "description": "Custom logging class",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "corbpie",
+      "email": "contact@corbpie.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Corbpie\\KennyLoggings\\": "src/"
+    }
+  }
+}
